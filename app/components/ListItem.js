@@ -9,21 +9,31 @@ import React from "react";
 import AppText from "./AppText";
 import colors from "../config/colors";
 
-const ListItem = ({ image, title, subTitle, onPress, renderRightActions }) => {
-    const rightAction = () => {
-        return <View style={{ backgroundColor: "red", width: 70 }}>sihdu</View>;
-    };
+import {
+    GestureHandlerRootView,
+    Swipeable,
+} from "react-native-gesture-handler";
 
+const ListItem = ({ image, title, subTitle, onPress, renderRightActions }) => {
     return (
-        <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
-            <View style={styles.container}>
-                <Image style={styles.image} source={image} />
-                <View>
-                    <AppText style={styles.title}>{title}</AppText>
-                    <AppText style={styles.subtitle}>{subTitle}</AppText>
-                </View>
-            </View>
-        </TouchableHighlight>
+        <GestureHandlerRootView>
+            <Swipeable renderRightActions={renderRightActions}>
+                <TouchableHighlight
+                    underlayColor={colors.light}
+                    onPress={onPress}
+                >
+                    <View style={styles.container}>
+                        <Image style={styles.image} source={image} />
+                        <View>
+                            <AppText style={styles.title}>{title}</AppText>
+                            <AppText style={styles.subtitle}>
+                                {subTitle}
+                            </AppText>
+                        </View>
+                    </View>
+                </TouchableHighlight>
+            </Swipeable>
+        </GestureHandlerRootView>
     );
 };
 
