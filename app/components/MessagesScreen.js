@@ -28,9 +28,7 @@ const MessagesScreen = () => {
     const handleDelete = (message) => {
         // Delete the message from messages
         const newMessages = messages.filter(m=>m.id !== message.id)
-        console.log(newMessages); 
         setMessages(newMessages)
-        console.log("sidhu",messages);
     };
     return (
         <Screen>
