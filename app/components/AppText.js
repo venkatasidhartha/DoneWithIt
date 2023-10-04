@@ -1,17 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
+import {Text} from 'react-native'
 import React from 'react'
+import defaultStyles from '../config/styles'
 
 const AppText = ({children,style}) => {
   return (
-      <Text style={[styles.text,style]}>{children}</Text>
+      <Text style={[defaultStyles.text,style]}>{children}</Text>
   )
 }
 
 export default AppText
-
-const styles = StyleSheet.create({
-    text:{
-        fontSize:18,
-        fontFamily:"Roboto",
-    }
-})
